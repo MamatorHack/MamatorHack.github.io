@@ -6,7 +6,7 @@
 
 Ce projet est un site web éducatif conçu pour servir de support d'apprentissage aux étudiants de l'ESAIP, École d'Ingénieurs, qui se préparent à intégrer la nouvelle spécialité en Intelligence Artificielle.
 
-**[➡️ Accéder au site en ligne](https://VOTRE_NOM_UTILISATEUR.github.io )**
+**[➡️ Accéder au site en ligne](https://MamatorHack.github.io )**
 
 ---
 
@@ -26,9 +26,7 @@ Le site est structuré pour suivre le programme de la spécialité, avec des cou
 
 | Page d'accueil | Page de cours |
 | :---: | :---: |
-| ![Capture d'écran de la page d'accueil](docs/assets/screenshot-home.png) | ![Capture d'écran d'une page de cours](docs/assets/screenshot-cours.png) |
-
-*(Action : Remplacez ces images par de vraies captures d'écran de votre site. Nommez-les `screenshot-home.png` et `screenshot-cours.png` et placez-les dans `docs/assets/`)*
+| ![Capture d'écran de la page d'accueil](/assets/screenshot-home.png) | ![Capture d'écran d'une page de cours](/assets/screenshot-cours.png) |
 
 ## 📚 Contenu Abordé
 
