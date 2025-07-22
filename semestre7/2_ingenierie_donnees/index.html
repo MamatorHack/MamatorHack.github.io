@@ -1,0 +1,1154 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Un outil éducatif pour la spécialité Intelligence Artificielle de l'ESAIP.">
+      
+      
+        <meta name="author" content="Mathis Marsault">
+      
+      
+      
+        <link rel="prev" href="../1_ethique_ia/">
+      
+      
+        <link rel="next" href="../3_deep_learning/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Ingénierie des Données - ESAIP - Outil d'Apprentissage IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-2-ingenierie-et-analyse-de-donnees" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="ESAIP - Outil d&#39;Apprentissage IA" class="md-header__button md-logo" aria-label="ESAIP - Outil d'Apprentissage IA" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ESAIP - Outil d'Apprentissage IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ingénierie des Données
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1_ethique_ia/" class="md-tabs__link">
+          
+  
+  
+  Semestre 7
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semestre8-1/1_ia_explicable/" class="md-tabs__link">
+          
+  
+  
+  Semestre 8-1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semestre8-2/1_apprentissage_renforcement/" class="md-tabs__link">
+          
+  
+  
+  Semestre 8-2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ESAIP - Outil d&#39;Apprentissage IA" class="md-nav__button md-logo" aria-label="ESAIP - Outil d'Apprentissage IA" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    ESAIP - Outil d'Apprentissage IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 7
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_ethique_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Éthique et IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Ingénierie des Données
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingénierie des Données
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lecosysteme-des-donnees-plus-quun-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. L'Écosystème des Données : Plus qu'un Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-larchitecture-moderne-la-modern-data-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. L'Architecture Moderne : La "Modern Data Stack"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-data-warehouse-vs-data-lake-deux-concepts-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Data Warehouse vs. Data Lake : Deux Concepts Clés
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-le-role-de-lanalyste-de-la-donnee-a-linsight" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Le Rôle de l'Analyste : De la Donnée à l'Insight
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quiz-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Quiz de compréhension
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_deep_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_optimisation_multicritere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimisation Multicritère
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 8-1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 8-1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-1/1_ia_explicable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IA Explicable (XAI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-1/2_taln/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TALN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-1/3_vision_par_ordinateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision par Ordinateur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-1/4_ia_generative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IA Générative
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 8-2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 8-2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/1_apprentissage_renforcement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apprentissage par Renforcement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/2_green_ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Green AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/3_systemes_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systèmes d’IA (MLOps)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/4_challenge_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Challenge IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lecosysteme-des-donnees-plus-quun-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. L'Écosystème des Données : Plus qu'un Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-larchitecture-moderne-la-modern-data-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. L'Architecture Moderne : La "Modern Data Stack"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-data-warehouse-vs-data-lake-deux-concepts-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Data Warehouse vs. Data Lake : Deux Concepts Clés
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-le-role-de-lanalyste-de-la-donnee-a-linsight" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Le Rôle de l'Analyste : De la Donnée à l'Insight
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quiz-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Quiz de compréhension
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-2-ingenierie-et-analyse-de-donnees">Module 2 : Ingénierie et Analyse de Données</h1>
+<p><strong>Objectif du cours :</strong> Comprendre comment les entreprises modernes construisent des systèmes robustes pour collecter, stocker et transformer les données. Vous découvrirez les concepts de la "Modern Data Stack", les différences entre Data Lake et Data Warehouse, et le rôle crucial de l'ingénieur de données.</p>
+<hr />
+<h2 id="1-lecosysteme-des-donnees-plus-quun-pipeline">1. L'Écosystème des Données : Plus qu'un Pipeline</h2>
+<p>Si l'IA est le moteur d'une voiture de course, l'ingénierie des données est toute l'écurie derrière : les mécaniciens, le carburant, les systèmes de télémétrie... Sans une fondation de données solide, le meilleur modèle d'IA reste au garage.</p>
+<p>Le rôle de l'<strong>Ingénieur de Données (Data Engineer)</strong> est de construire et maintenir cette fondation. Il s'assure que les données sont <strong>disponibles, fiables et accessibles</strong> pour les <strong>Analystes de Données (Data Analysts)</strong> et les <strong>Scientifiques des Données (Data Scientists)</strong>.</p>
+<hr />
+<h2 id="2-larchitecture-moderne-la-modern-data-stack">2. L'Architecture Moderne : La "Modern Data Stack"</h2>
+<p>Le processus ETL classique a évolué. Aujourd'hui, on parle de la <strong>"Modern Data Stack"</strong>, une approche modulaire basée sur des outils cloud spécialisés. Le paradigme dominant est l'<strong>ELT (Extract, Load, Transform)</strong>.</p>
+<ol>
+<li>
+<p><strong>Extract &amp; Load :</strong> On utilise des outils automatisés (comme Fivetran ou Airbyte) pour extraire les données de leurs sources (applications, bases de données, API) et les charger <strong>brutes</strong> dans une destination centrale.</p>
+</li>
+<li>
+<p><strong>Store (Stocker) :</strong> La destination est un <strong>Data Warehouse Cloud</strong> (comme Snowflake, Google BigQuery, ou Amazon Redshift). C'est le cœur du système.</p>
+</li>
+<li>
+<p><strong>Transform :</strong> Une fois les données dans le Warehouse, on les transforme en utilisant principalement du <strong>SQL</strong>. C'est là que la logique métier est appliquée pour nettoyer, joindre et agréger les données, les préparant pour l'analyse. L'outil de référence pour orchestrer ces transformations est <strong>dbt (Data Build Tool)</strong>.</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Pourquoi ELT est devenu la norme ?</p>
+<p>Le coût du stockage dans le cloud a chuté, il est donc plus simple de tout stocker d'abord et de transformer ensuite. Cela offre plus de flexibilité : les données brutes sont toujours disponibles si les besoins d'analyse changent.</p>
+</div>
+<hr />
+<h2 id="3-data-warehouse-vs-data-lake-deux-concepts-cles">3. Data Warehouse vs. Data Lake : Deux Concepts Clés</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caractéristique</th>
+<th style="text-align: left;">Data Warehouse (Entrepôt)</th>
+<th style="text-align: left;">Data Lake (Lac)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Nature des données</strong></td>
+<td style="text-align: left;">Structurées, traitées, nettoyées</td>
+<td style="text-align: left;">Brutes, non structurées (images, logs, PDF...)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schéma</strong></td>
+<td style="text-align: left;">Schéma défini à l'écriture (Schema-on-Write)</td>
+<td style="text-align: left;">Schéma défini à la lecture (Schema-on-Read)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Utilisateurs</strong></td>
+<td style="text-align: left;">Analystes d'affaires, pour le reporting et la BI</td>
+<td style="text-align: left;">Data Scientists, pour l'exploration et le ML</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cas d'usage</strong></td>
+<td style="text-align: left;">Tableaux de bord, indicateurs de performance</td>
+<td style="text-align: left;">Entraînement de modèles de ML, analyse exploratoire</td>
+</tr>
+</tbody>
+</table>
+<p>Aujourd'hui, la frontière s'estompe avec le concept de <strong>"Lakehouse"</strong> (proposé par Databricks), qui vise à combiner la flexibilité d'un Data Lake avec la fiabilité et les performances d'un Data Warehouse.</p>
+<hr />
+<h2 id="4-le-role-de-lanalyste-de-la-donnee-a-linsight">4. Le Rôle de l'Analyste : De la Donnée à l'Insight</h2>
+<p>Une fois les données transformées et modélisées par l'ingénieur, l'<strong>Analyste de Données</strong> prend le relais. Son rôle est de :</p>
+<ol>
+<li>
+<p><strong>Explorer les données</strong> pour comprendre les tendances et les motifs (Analyse Exploratoire de Données - EDA).</p>
+</li>
+<li>
+<p><strong>Construire des tableaux de bord (dashboards)</strong> et des visualisations pour suivre les indicateurs de performance (KPIs). Outils : Tableau, Power BI, Looker.</p>
+</li>
+<li>
+<p><strong>Répondre à des questions métier</strong> en interrogeant les données, principalement avec SQL.</p>
+</li>
+</ol>
+<p>C'est le travail de l'analyste qui transforme les données propres en décisions éclairées.</p>
+<hr />
+<h2 id="5-quiz-de-comprehension">5. Quiz de compréhension</h2>
+<div class="quiz" id="quiz_data_eng_1">
+    <p class="quiz-question"><strong>Question 1 :</strong> Quelle est la principale différence entre l'approche ETL traditionnelle et l'approche ELT moderne ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_data_eng_1" value="a"> A) L'ETL est plus rapide que l'ELT.</label>
+        <label><input type="radio" name="q_data_eng_1" value="b"> B) L'ELT charge les données brutes avant de les transformer, alors que l'ETL les transforme avant de les charger.</label>
+        <label><input type="radio" name="q_data_eng_1" value="c"> C) L'ETL ne fonctionne qu'avec du SQL, l'ELT qu'avec du Python.</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_data_eng_1', {'q_data_eng_1': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+<div class="quiz" id="quiz_data_eng_2">
+    <p class="quiz-question"><strong>Question 2 :</strong> Pour entraîner un modèle de reconnaissance d'images, où stockeriez-vous initialement vos milliers de fichiers JPEG bruts ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_data_eng_2" value="a"> A) Dans un Data Warehouse, car il est très structuré.</label>
+        <label><input type="radio" name="q_data_eng_2" value="b"> B) Dans un Data Lake, car il est conçu pour stocker des données brutes et non structurées.</label>
+        <label><input type="radio" name="q_data_eng_2" value="c"> C) Directement dans un outil de BI comme Tableau.</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_data_eng_2', {'q_data_eng_2': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+<div class="quiz" id="quiz_data_eng_3">
+    <p class="quiz-question"><strong>Question 3 :</strong> Quel outil est devenu le standard de l'industrie pour l'étape de Transformation (le 'T' dans ELT) dans la Modern Data Stack ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_data_eng_3" value="a"> A) Python avec Pandas</label>
+        <label><input type="radio" name="q_data_eng_3" value="b"> B) Fivetran</label>
+        <label><input type="radio" name="q_data_eng_3" value="c"> C) dbt (Data Build Tool)</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_data_eng_3', {'q_data_eng_3': 'c'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>

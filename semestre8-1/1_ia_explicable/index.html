@@ -1,0 +1,1164 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Un outil éducatif pour la spécialité Intelligence Artificielle de l'ESAIP.">
+      
+      
+        <meta name="author" content="Mathis Marsault">
+      
+      
+      
+        <link rel="prev" href="../../semestre7/4_optimisation_multicritere/">
+      
+      
+        <link rel="next" href="../2_taln/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>IA Explicable (XAI) - ESAIP - Outil d'Apprentissage IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-5-ia-explicable-explainable-ai-xai" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="ESAIP - Outil d&#39;Apprentissage IA" class="md-header__button md-logo" aria-label="ESAIP - Outil d'Apprentissage IA" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ESAIP - Outil d'Apprentissage IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IA Explicable (XAI)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semestre7/1_ethique_ia/" class="md-tabs__link">
+          
+  
+  
+  Semestre 7
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Semestre 8-1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semestre8-2/1_apprentissage_renforcement/" class="md-tabs__link">
+          
+  
+  
+  Semestre 8-2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ESAIP - Outil d&#39;Apprentissage IA" class="md-nav__button md-logo" aria-label="ESAIP - Outil d'Apprentissage IA" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    ESAIP - Outil d'Apprentissage IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 7
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/1_ethique_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Éthique et IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/2_ingenierie_donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingénierie des Données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/3_deep_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/4_optimisation_multicritere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimisation Multicritère
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 8-1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 8-1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    IA Explicable (XAI)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    IA Explicable (XAI)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pourquoi-demander-des-comptes-a-une-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pourquoi Demander des Comptes à une IA ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deux-niveaux-de-questionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Deux Niveaux de Questionnement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comment-interroger-une-boite-noire-les-methodes-intuitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Comment Interroger une "Boîte Noire" ? Les Méthodes Intuitives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comment Interroger une &#34;Boîte Noire&#34; ? Les Méthodes Intuitives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lime-lanalogie-du-specialiste-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      LIME : L'analogie du "Spécialiste Local"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shap-lanalogie-de-lequipe-de-foot" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHAP : L'analogie de "l'Équipe de Foot"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-quiz-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Quiz de compréhension
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_taln/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TALN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_vision_par_ordinateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision par Ordinateur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_ia_generative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IA Générative
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 8-2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 8-2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/1_apprentissage_renforcement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apprentissage par Renforcement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/2_green_ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Green AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/3_systemes_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systèmes d’IA (MLOps)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/4_challenge_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Challenge IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pourquoi-demander-des-comptes-a-une-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pourquoi Demander des Comptes à une IA ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deux-niveaux-de-questionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Deux Niveaux de Questionnement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comment-interroger-une-boite-noire-les-methodes-intuitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Comment Interroger une "Boîte Noire" ? Les Méthodes Intuitives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comment Interroger une &#34;Boîte Noire&#34; ? Les Méthodes Intuitives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lime-lanalogie-du-specialiste-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      LIME : L'analogie du "Spécialiste Local"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shap-lanalogie-de-lequipe-de-foot" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHAP : L'analogie de "l'Équipe de Foot"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-quiz-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Quiz de compréhension
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-5-ia-explicable-explainable-ai-xai">Module 5 : IA Explicable (Explainable AI - XAI)</h1>
+<p><strong>Objectif du cours :</strong> Comprendre pourquoi et comment "ouvrir la boîte noire" des modèles d'IA. Vous découvrirez, à travers des analogies simples, comment des outils comme LIME et SHAP nous permettent de comprendre les décisions des algorithmes les plus complexes.</p>
+<hr />
+<h2 id="1-pourquoi-demander-des-comptes-a-une-ia">1. Pourquoi Demander des Comptes à une IA ?</h2>
+<p>Imaginez une IA qui aide un médecin à diagnostiquer des maladies. Le modèle est très performant, mais il se contente de donner un résultat : "Maladie A" ou "Maladie B". Un bon médecin ne pourrait jamais faire confiance à un tel outil. Il a besoin de savoir <strong>pourquoi</strong> l'IA pense cela. Est-ce à cause du résultat d'une analyse de sang ? D'un symptôme particulier ?</p>
+<p>L'XAI est née de ce besoin fondamental de <strong>confiance</strong>. Pour les décisions importantes (médicales, financières, judiciaires), nous devons pouvoir comprendre et questionner la logique de l'IA. C'est aussi un outil de débogage essentiel pour s'assurer que le modèle ne prend pas de "mauvais raccourcis".</p>
+<hr />
+<h2 id="2-deux-niveaux-de-questionnement">2. Deux Niveaux de Questionnement</h2>
+<p>On peut interroger une IA de deux manières :</p>
+<ol>
+<li>
+<p><strong>Vision d'ensemble (Explication Globale) :</strong></p>
+<ul>
+<li><strong>La question :</strong> "Cher modèle, de manière générale, sur quoi te bases-tu pour prendre tes décisions ?"</li>
+<li><strong>L'objectif :</strong> Comprendre la logique générale du système.</li>
+<li><strong>Exemple :</strong> Un modèle de scoring bancaire pourrait répondre : "En général, les facteurs les plus importants pour moi sont le niveau de revenu, l'historique de crédit et le ratio dette/revenu."</li>
+</ul>
+</li>
+<li>
+<p><strong>Étude de cas (Explication Locale) :</strong></p>
+<ul>
+<li><strong>La question :</strong> "Cher modèle, pourquoi as-tu refusé le prêt de M. Dupont en particulier ?"</li>
+<li><strong>L'objectif :</strong> Comprendre une décision spécifique.</li>
+<li><strong>Exemple :</strong> Le modèle pourrait répondre : "Pour M. Dupont, le facteur décisif a été son ratio dette/revenu qui est très élevé, même si son revenu est bon."</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="3-comment-interroger-une-boite-noire-les-methodes-intuitives">3. Comment Interroger une "Boîte Noire" ? Les Méthodes Intuitives</h2>
+<p>Comment faire parler un modèle si complexe qu'on ne peut pas lire son "code source" interne ? On utilise des techniques astucieuses qui traitent le modèle comme une boîte noire et l'interrogent de l'extérieur.</p>
+<h3 id="lime-lanalogie-du-specialiste-local">LIME : L'analogie du "Spécialiste Local"</h3>
+<p>Imaginez que la "boîte noire" est un expert mondial dans un domaine très complexe, qui ne parle qu'un langage mathématique. Vous voulez comprendre sa décision sur un cas précis.</p>
+<ul>
+<li><strong>La méthode LIME :</strong> Vous n'allez pas essayer de comprendre tout le savoir de l'expert mondial. C'est trop compliqué. À la place, vous allez engager un "spécialiste local", un jeune analyste très pédagogue.<ol>
+<li>Vous montrez le cas de M. Dupont à l'expert mondial. Il vous donne sa décision.</li>
+<li>Vous créez ensuite plein de "clones" de M. Dupont en changeant légèrement ses informations (un peu plus de revenu, un peu moins d'ancienneté...). Vous montrez tous ces clones à l'expert mondial et notez ses réponses.</li>
+<li>Vous donnez toutes ces informations à votre "spécialiste local". Sa mission : créer une règle très simple (du type "si le revenu est X et la dette est Y, alors...") qui explique parfaitement les réponses de l'expert mondial, mais <strong>uniquement pour les cas qui ressemblent à M. Dupont</strong>.</li>
+</ol>
+</li>
+<li><strong>Le résultat :</strong> LIME vous donne l'explication du spécialiste local. C'est une approximation, mais une approximation très fidèle et surtout très simple à comprendre pour le cas qui vous intéresse.</li>
+</ul>
+<h3 id="shap-lanalogie-de-lequipe-de-foot">SHAP : L'analogie de "l'Équipe de Foot"</h3>
+<p>Imaginez qu'une prédiction est le résultat d'un match de foot. Le score final (par exemple, 3-1) est la prédiction du modèle. Les joueurs sur le terrain sont les caractéristiques (revenu, âge, etc.).</p>
+<ul>
+<li><strong>La méthode SHAP :</strong> Vous voulez savoir quelle a été la contribution de chaque joueur au score final.<ol>
+<li>Le score de base, si aucun joueur n'était sur le terrain, était de 0-0. C'est la prédiction moyenne du modèle.</li>
+<li>Faire entrer le premier joueur (le revenu) a peut-être fait passer le score à 1-0. Sa contribution est de +1.</li>
+<li>Faire entrer le deuxième joueur (l'âge) a peut-être fait passer le score à 1-1. Sa contribution est de -1 (car il a fait marquer l'équipe adverse).</li>
+<li>SHAP fait cela de manière très intelligente : il calcule la contribution de chaque "joueur" en simulant tous les ordres d'entrée possibles sur le terrain, pour obtenir la contribution moyenne et juste de chacun.</li>
+</ol>
+</li>
+<li><strong>Le résultat :</strong> SHAP vous donne un bilan comptable parfait : "La prédiction finale de 3.2 est partie d'une moyenne de 1.5, à laquelle le revenu a ajouté +2.0, l'âge a retiré -0.5, et l'ancienneté a ajouté +0.2." C'est une explication complète et équitable.</li>
+</ul>
+<hr />
+<h2 id="4-quiz-de-comprehension">4. Quiz de compréhension</h2>
+<div class="quiz" id="quiz_xai_1">
+    <p class="quiz-question"><strong>Question 1 : Un manager vous demande de lui expliquer les règles générales de décision de votre modèle de scoring client. Quel type d'explication allez-vous chercher à fournir ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_xai_1" value="a"> A) Une explication locale</label>
+        <label><input type="radio" name="q_xai_1" value="b"> B) Une explication globale</label>
+        <label><input type="radio" name="q_xai_1" value="c"> C) Une explication agnostique</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_xai_1', {'q_xai_1': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+<div class="quiz" id="quiz_xai_2">
+    <p class="quiz-question"><strong>Question 2 : L'approche de LIME peut être comparée à :</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_xai_2" value="a"> A) Traduire entièrement le savoir d'un expert mondial.</label>
+        <label><input type="radio" name="q_xai_2" value="b"> B) Engager un analyste local pour expliquer un cas spécifique de manière simple.</label>
+        <label><input type="radio" name="q_xai_2" value="c"> C) Calculer la contribution de chaque joueur à un match de foot.</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_xai_2', {'q_xai_2': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+<div class="quiz" id="quiz_xai_3">
+    <p class="quiz-question"><strong>Question 3 : Si vous voulez une explication qui décompose une prédiction en montrant la contribution positive ou négative de chaque caractéristique, quelle analogie est la plus pertinente ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_xai_3" value="a"> A) L'analogie du "spécialiste local" (LIME).</label>
+        <label><input type="radio" name="q_xai_3" value="b"> B) L'analogie de "l'équipe de foot" (SHAP).</label>
+        <label><input type="radio" name="q_xai_3" value="c"> C) Aucune des deux.</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_xai_3', {'q_xai_3': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,272 @@
+/* Couleurs personnalisées ESAIP */
+:root {
+  --md-primary-fg-color:        #0055A4; /* Bleu ESAIP */
+  --md-primary-fg-color--light: #00A5B5; /* Turquoise ESAIP */
+  --md-primary-fg-color--dark:  #003366; /* Bleu foncé */
+}
+
+/* Style pour les quiz */
+.quiz-question {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    background-color: #fafafa;
+}
+.quiz-question summary {
+    padding: 0.8em;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+.quiz-question[open] summary {
+    border-bottom: 1px solid #e0e0e0;
+}
+.quiz-options {
+    padding: 0.8em;
+}
+.quiz-options ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.quiz-options li.correct-answer {
+    font-weight: bold;
+    color: #4CAF50; /* Vert pour la bonne réponse */
+}
+.quiz-options li.correct-answer::before {
+    content: '✔ ';
+    color: #4CAF50;
+}
+
+/* Styles pour les nouveaux quiz interactifs */
+.quiz {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.quiz-question {
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+.quiz-options label {
+    display: block;
+    padding: 0.75em;
+    margin: 0.5em 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.quiz-options label:hover {
+    background-color: #e9ecef;
+}
+
+.quiz-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Styles pour le feedback sur les options */
+.quiz-options label.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    font-weight: bold;
+}
+
+.quiz-options label.incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    font-weight: bold;
+}
+
+.quiz-submit-button {
+    background-color: var(--md-primary-fg-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.2s;
+}
+
+.quiz-submit-button:hover {
+    background-color: var(--md-primary-fg-color--dark);
+}
+
+.quiz-feedback {
+    margin-top: 1em;
+    padding: 0.8em;
+    border-radius: 5px;
+    font-weight: bold;
+    display: block; /* Assure qu'il prend de la place */
+}
+
+.quiz-feedback.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.quiz-feedback.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.quiz-feedback.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Style pour la mise en avant de la chaîne YouTube */
+.youtube-showcase {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 1em;
+}
+
+.youtube-text {
+    flex: 3; /* Prend plus de place */
+}
+
+.youtube-logo {
+    flex: 1; /* Prend moins de place */
+    text-align: center;
+}
+
+.youtube-logo img {
+    max-width: 100px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.youtube-logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .youtube-showcase {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ---------------------------------------------------------------- */
+/* AMÉLIORATION VISUELLE DE LA NAVIGATION (VERSION AMÉLIORÉE)       */
+/* ---------------------------------------------------------------- */
+
+/* Conteneur des onglets pour ajouter un léger espacement */
+.md-header__topic {
+    padding: 0.2rem 0;
+}
+
+/* Style des onglets principaux (Semestre 7, etc.) */
+.md-tabs__link {
+    padding: 0.6em 1.3em; /* Plus de padding vertical pour un aspect plus épais */
+    border-radius: 6px; /* Bords moins arrondis pour un look plus "bouton" */
+    transition: all 0.1s ease-in-out;
+    margin: 0 0.3em;
+    font-size: 0.7rem; /* Taille de police légèrement augmentée */
+    font-weight: 600; /* Police plus grasse par défaut */
+    color: rgba(255, 255, 255, 0.8); /* Texte légèrement moins blanc pour contraster */
+    background-color: rgba(255, 255, 255, 0.1); /* Fond subtil par défaut */
+    box-shadow: 0 1px 2px rgba(23, 0, 153, 0.1); /* Ombre légère pour donner du relief */
+}
+
+/* Style de l'onglet ACTIF */
+.md-tabs__link--active {
+    background-color: #FFFFFF; /* Fond blanc plein pour un maximum de contraste */
+    color: var(--md-primary-fg-color); /* Texte avec la couleur principale (bleu ESAIP) */
+    font-weight: 700; /* Police encore plus grasse */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Ombre plus prononcée */
+}
+
+/* Effet au survol d'un onglet non-actif */
+.md-tabs__link:not(.md-tabs__link--active):hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #FFFFFF; /* Texte blanc plein au survol */
+    transform: translateY(-2px); /* Léger mouvement vers le haut */
+}
+
+
+/* ---------------------------------------------------------------- */
+/* AMÉLIORATION VISUELLE DE LA TABLE DES MATIÈRES (À DROITE)        */
+/* ---------------------------------------------------------------- */
+
+/* Titre "Table des matières" */
+.md-nav__title[for="__toc"] {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--md-primary-fg-color); /* Utilise la couleur principale du thème */
+    border-left: 3px solid var(--md-primary-fg-color);
+    padding-left: 10px;
+    margin-bottom: 1em;
+}
+
+/* Style des liens de la table des matières */
+.md-nav--secondary .md-nav__link {
+    padding: 0.3em 1em;
+    border-left: 2px solid #e0e0e0; /* Ligne de guidage grise */
+    transition: all 0.2s ease;
+}
+
+/* Style du lien actif dans la table des matières */
+.md-nav--secondary .md-nav__link--active {
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+    border-left: 2px solid var(--md-primary-fg-color); /* Ligne de guidage de la couleur du thème */
+    background-color: rgba(0, 165, 181, 0.1); /* Fond légèrement coloré (turquoise ESAIP) */
+}
+
+/* Effet au survol d'un lien non-actif */
+.md-nav--secondary .md-nav__link:not(.md-nav__link--active):hover {
+    color: var(--md-primary-fg-color);
+    border-left-color: var(--md-primary-fg-color--light);
+}
+
+/* ---------------------------------------------------------------- */
+/* AMÉLIORATION VISUELLE DU MENU DE GAUCHE (COURS)                  */
+/* ---------------------------------------------------------------- */
+
+/* Style du titre du semestre (ex: "Semestre 7") */
+.md-nav--primary .md-nav__title {
+    background-color: rgba(0, 85, 164, 0.1); /* Fond légèrement bleuté */
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    box-shadow: inset 0 -1px 0 var(--md-default-fg-color--lightest);
+}
+
+/* Style des liens des modules dans le menu de gauche */
+.md-nav__item .md-nav__link {
+    font-size: 0.85rem; /* Taille de police légèrement plus grande pour la lisibilité */
+    padding: 0.6em 1.2rem;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent; /* Bordure transparente par défaut */
+}
+
+/* Style du lien du module ACTIF */
+.md-nav__item .md-nav__link--active {
+    color: var(--md-primary-fg-color); /* Utilise la couleur principale du thème */
+    font-weight: 700; /* Police en gras */
+    border-left: 4px solid var(--md-primary-fg-color); /* Bordure de couleur vive */
+    background-color: rgba(0, 165, 181, 0.1); /* Fond turquoise très léger */
+}
+
+/* Effet au survol d'un lien de module non-actif */
+.md-nav__item:not(.md-nav__item--active) .md-nav__link:hover {
+    color: var(--md-primary-fg-color);
+    background-color: rgba(0, 85, 164, 0.05); /* Fond très léger au survol */
+}

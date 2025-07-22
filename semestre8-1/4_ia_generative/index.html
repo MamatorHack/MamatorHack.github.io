@@ -1,0 +1,1163 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Un outil éducatif pour la spécialité Intelligence Artificielle de l'ESAIP.">
+      
+      
+        <meta name="author" content="Mathis Marsault">
+      
+      
+      
+        <link rel="prev" href="../3_vision_par_ordinateur/">
+      
+      
+        <link rel="next" href="../../semestre8-2/1_apprentissage_renforcement/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>IA Générative - ESAIP - Outil d'Apprentissage IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-8-ia-generative-genai" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="ESAIP - Outil d&#39;Apprentissage IA" class="md-header__button md-logo" aria-label="ESAIP - Outil d'Apprentissage IA" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ESAIP - Outil d'Apprentissage IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IA Générative
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semestre7/1_ethique_ia/" class="md-tabs__link">
+          
+  
+  
+  Semestre 7
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1_ia_explicable/" class="md-tabs__link">
+          
+  
+  
+  Semestre 8-1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semestre8-2/1_apprentissage_renforcement/" class="md-tabs__link">
+          
+  
+  
+  Semestre 8-2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ESAIP - Outil d&#39;Apprentissage IA" class="md-nav__button md-logo" aria-label="ESAIP - Outil d'Apprentissage IA" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    ESAIP - Outil d'Apprentissage IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 7
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/1_ethique_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Éthique et IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/2_ingenierie_donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingénierie des Données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/3_deep_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre7/4_optimisation_multicritere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimisation Multicritère
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 8-1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 8-1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_ia_explicable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IA Explicable (XAI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_taln/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TALN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_vision_par_ordinateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision par Ordinateur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    IA Générative
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    IA Générative
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-de-lanalyse-a-la-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction : De l'Analyse à la Création
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-la-generation-dimages-deux-grandes-ecoles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. La Génération d'Images : Deux Grandes Écoles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. La Génération d&#39;Images : Deux Grandes Écoles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gans-generative-adversarial-networks-lanalogie-du-faussaire-et-du-policier" class="md-nav__link">
+    <span class="md-ellipsis">
+      GANs (Generative Adversarial Networks) : L'Analogie du Faussaire et du Policier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeles-de-diffusion-lanalogie-du-sculpteur-sur-marbre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modèles de Diffusion : L'Analogie du Sculpteur sur Marbre
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-generation-de-texte-les-grands-modeles-de-langage-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. La Génération de Texte : Les Grands Modèles de Langage (LLM)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-quiz-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Quiz de compréhension
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Semestre 8-2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Semestre 8-2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/1_apprentissage_renforcement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apprentissage par Renforcement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/2_green_ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Green AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/3_systemes_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systèmes d’IA (MLOps)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestre8-2/4_challenge_ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Challenge IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-de-lanalyse-a-la-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction : De l'Analyse à la Création
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-la-generation-dimages-deux-grandes-ecoles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. La Génération d'Images : Deux Grandes Écoles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. La Génération d&#39;Images : Deux Grandes Écoles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gans-generative-adversarial-networks-lanalogie-du-faussaire-et-du-policier" class="md-nav__link">
+    <span class="md-ellipsis">
+      GANs (Generative Adversarial Networks) : L'Analogie du Faussaire et du Policier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeles-de-diffusion-lanalogie-du-sculpteur-sur-marbre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modèles de Diffusion : L'Analogie du Sculpteur sur Marbre
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-generation-de-texte-les-grands-modeles-de-langage-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. La Génération de Texte : Les Grands Modèles de Langage (LLM)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-quiz-de-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Quiz de compréhension
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-8-ia-generative-genai">Module 8 : IA Générative (GenAI)</h1>
+<p><strong>Objectif du cours :</strong> Comprendre les mécanismes qui permettent à une IA de passer de la simple analyse à la création de contenu original. Vous découvrirez les grandes familles de modèles génératifs pour les images (GANs, Diffusion) et pour le texte (LLM).</p>
+<hr />
+<h2 id="1-introduction-de-lanalyse-a-la-creation">1. Introduction : De l'Analyse à la Création</h2>
+<p>Jusqu'à présent, nous avons surtout vu des modèles d'<strong>IA discriminative</strong> : leur but est de trier, de classer, de mettre des étiquettes (ex: "cette image est un chat").</p>
+<p>L'<strong>IA générative</strong> a un objectif inverse et plus ambitieux : elle apprend la structure profonde des données pour pouvoir <strong>générer de nouveaux échantillons</strong> qui semblent authentiques. Au lieu de reconnaître un chat, elle apprend à en dessiner un qui n'a jamais existé.</p>
+<hr />
+<h2 id="2-la-generation-dimages-deux-grandes-ecoles">2. La Génération d'Images : Deux Grandes Écoles</h2>
+<h3 id="gans-generative-adversarial-networks-lanalogie-du-faussaire-et-du-policier">GANs (Generative Adversarial Networks) : L'Analogie du Faussaire et du Policier</h3>
+<p>Les GANs mettent en scène une compétition entre deux réseaux de neurones :
+*   <strong>Le Générateur (le Faussaire) :</strong> Son seul but est de créer de fausses images (par exemple, de faux billets de banque) qui semblent réelles.
+*   <strong>Le Discriminateur (le Policier) :</strong> Son seul but est d'examiner une image et de déterminer si c'est une vraie ou une fausse.</p>
+<p>Au début, le faussaire est nul et le policier le démasque facilement. Mais en s'entraînant, le faussaire apprend des erreurs que le policier détecte, et le policier s'améliore en voyant les nouvelles contrefaçons. Ce jeu du chat et de la souris pousse les deux réseaux à devenir extrêmement performants. À la fin, le générateur est capable de créer des images quasi indiscernables de la réalité.</p>
+<h3 id="modeles-de-diffusion-lanalogie-du-sculpteur-sur-marbre">Modèles de Diffusion : L'Analogie du Sculpteur sur Marbre</h3>
+<p>C'est la technologie derrière les outils modernes comme Midjourney ou DALL-E 2.</p>
+<p><strong>Idée clé :</strong> Il est plus facile d'apprendre à détruire qu'à construire. Le modèle apprend donc d'abord à prendre une image nette et à la transformer progressivement en un bruit informe, étape par étape.</p>
+<p>Une fois qu'il maîtrise parfaitement ce processus de "destruction", on lui apprend à faire le chemin inverse. On lui donne un bloc de bruit pur (comme un bloc de marbre brut) et on lui demande de le "débruiter" pas à pas pour en faire émerger une image cohérente (la sculpture).</p>
+<p>Pour guider la création (ex: "un chat en costume d'astronaute"), on injecte l'information du texte à chaque étape du "débruitage", forçant le modèle à sculpter une image qui correspond à la description.</p>
+<hr />
+<h2 id="3-la-generation-de-texte-les-grands-modeles-de-langage-llm">3. La Génération de Texte : Les Grands Modèles de Langage (LLM)</h2>
+<p>Les LLM comme GPT-4 sont des modèles basés sur l'architecture <strong>Transformer</strong>, entraînés sur la quasi-totalité du texte accessible sur Internet.</p>
+<ul>
+<li>
+<p><strong>L'Objectif d'Entraînement :</strong> Leur tâche est conceptuellement simple : prédire le mot suivant le plus probable dans une phrase. En faisant cela des milliards et des milliards de fois, ils développent une compréhension incroyablement riche de la grammaire, du style, des concepts et même d'une certaine forme de raisonnement.</p>
+</li>
+<li>
+<p><strong>De la Prédiction à la Conversation : L'Alignement</strong></p>
+<ul>
+<li>
+<p>Un LLM de base est un simple "compléteur de texte". Si vous lui donnez "Le président de la France est...", il complétera. Mais il n'est pas un assistant conversationnel.</p>
+<div class="admonition video">
+<p class="admonition-title">Pour aller plus loin (Mathis AI): Comment Créer TON premier modèle IA en 8 min (Détection de Spam) !</p>
+<p>Cette vidéo vous expliquera en partie le principe de l'IA générative et vous aidera à créer votre premier modèle d'IA.
+<br>
+<a href="https://youtu.be/0rtlRbKPQLE?si=bvngkOPeBoHq4U4u"><img alt="" src="https://img.youtube.com/vi/0rtlRbKPQLE/0.jpg" /></a></p>
+</div>
+</li>
+<li>
+<p>Pour le transformer en ChatGPT, il subit une phase cruciale d'<strong>alignement</strong>. On le "fine-tune" pour qu'il apprenne à suivre des instructions, à être honnête, et à refuser les requêtes dangereuses.</p>
+<div class="admonition video">
+<p class="admonition-title">Pour aller plus loin (Mathis AI): Fine-Tune TON propre modèle LLM gratuitement (Google Colab + Unsloth) !</p>
+<p>Cette vidéo vous aidera à comprendre le principe de fine-tuning.
+<br>
+<a href="https://youtu.be/I0ddM5Y57-M?si=SihEHhh9tUPq9tUP"><img alt="" src="https://img.youtube.com/vi/I0ddM5Y57-M/0.jpg" /></a></p>
+</div>
+</li>
+<li>
+<p>La technique la plus connue est le <strong>RLHF (Reinforcement Learning from Human Feedback)</strong>. Des humains évaluent des milliers de réponses du modèle, indiquant celles qu'ils préfèrent. Le modèle est ensuite entraîné par apprentissage par renforcement à produire des réponses qui maximisent la probabilité d'être préférées par un humain. C'est ce qui lui donne sa personnalité d'assistant serviable.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="4-quiz-de-comprehension">4. Quiz de compréhension</h2>
+<div class="quiz" id="quiz_genai_1">
+    <p class="quiz-question"><strong>Question 1 : Dans un GAN, quel est le rôle du "Discriminateur" ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_genai_1" value="a"> A) Créer de fausses images.</label>
+        <label><input type="radio" name="q_genai_1" value="b"> B) Tenter de distinguer les vraies images des fausses.</label>
+        <label><input type="radio" name="q_genai_1" value="c"> C) Ajouter du bruit à une image.</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_genai_1', {'q_genai_1': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+<div class="quiz" id="quiz_genai_2">
+    <p class="quiz-question"><strong>Question 2 : L'analogie du "sculpteur qui part d'un bloc de marbre bruité" correspond à quelle technologie ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_genai_2" value="a"> A) Les GANs</label>
+        <label><input type="radio" name="q_genai_2" value="b"> B) Les Modèles de Diffusion</label>
+        <label><input type="radio" name="q_genai_2" value="c"> C) Les LLM</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_genai_2', {'q_genai_2': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+<div class="quiz" id="quiz_genai_3">
+    <p class="quiz-question"><strong>Question 3 : Qu'est-ce que l'alignement (par RLHF) pour un LLM ?</p>
+    <div class="quiz-options">
+        <label><input type="radio" name="q_genai_3" value="a"> A) La phase initiale d'entraînement sur tout Internet.</label>
+        <label><input type="radio" name="q_genai_3" value="b"> B) Une phase de spécialisation pour lui apprendre à se comporter comme un assistant utile et sûr.</label>
+        <label><input type="radio" name="q_genai_3" value="c"> C) Une technique pour le rendre plus rapide.</label>
+    </div>
+    <button class="quiz-submit-button" onclick="checkQuiz('quiz_genai_3', {'q_genai_3': 'b'})">Valider</button>
+    <p class="quiz-feedback"></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>
