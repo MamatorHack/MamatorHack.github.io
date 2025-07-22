@@ -1,7 +1,6 @@
 # Outil d'Apprentissage pour la Spécialité IA - ESAIP
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/MamatorHack/MamatorHack.github.io?style=for-the-badge&logo=github )
-![GitHub repo size](https://img.shields.io/github/repo-size/MamatorHack/MamatorHack.github.io?style=for-the-badge&logo=git )
 ![GitHub stars](https://img.shields.io/github/stars/MamatorHack/MamatorHack.github.io?style=for-the-badge&logo=github&label=Stars )
 
 Ce projet est un site web éducatif conçu pour servir de support d'apprentissage aux étudiants de l'ESAIP, École d'Ingénieurs, qui se préparent à intégrer la nouvelle spécialité en Intelligence Artificielle.
